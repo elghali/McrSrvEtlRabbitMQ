@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  parser.api:
+    image: ${DOCKER_REGISTRY-}parserapi
+    build:
+      context: .
+      dockerfile: Services/Parser.API/Dockerfile
+
+  loader.api:
+    image: ${DOCKER_REGISTRY-}loaderapi
+    build:
+      context: .
+      dockerfile: Services/Loader.API/Dockerfile
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
